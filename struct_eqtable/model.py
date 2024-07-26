@@ -6,12 +6,11 @@ from transformers import AutoModelForVision2Seq, AutoProcessor
 
 
 class StructTable(nn.Module):
-    def __init__(self, model_path, max_new_tokens=2048, max_time=60, use_gpu=True):
+    def __init__(self, model_path, max_new_tokens=2048, max_time=60):
         super().__init__()
         self.model_path = model_path
         self.max_new_tokens = max_new_tokens
         self.max_generate_time = max_time
-        self.use_gpu = use_gpu
 
         # init model and image processor from ckpt path
         self.init_image_processor(model_path)
@@ -37,9 +36,10 @@ class StructTable(nn.Module):
             images=image,
             return_tensors='pt',
         )
-        if self.use_gpu:
-            for k, v in image_tokens.items():
-                image_tokens[k] = v.cuda()
+
+        device = next(self.parameters()).device
+        for k, v in image_tokens.items():
+            image_tokens[k] = v.to(device)
 
         # generate text from image tokens
         model_output = self.model.generate(

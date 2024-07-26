@@ -21,7 +21,7 @@ def main():
         from pypandoc import convert_text
 
     # build model
-    model = build_model(args.ckpt_path, max_new_tokens=4096, max_time=120, use_gpu=(not args.cpu))
+    model = build_model(args.ckpt_path, max_new_tokens=4096, max_time=60)
     if not args.cpu:
         model = model.cuda()
 
