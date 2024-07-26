@@ -9,7 +9,7 @@ from struct_eqtable import build_model
 def parse_config():
     parser = argparse.ArgumentParser(description='arg parser')
     parser.add_argument('--image_path', type=str, default='demo.png', help='data path for table image')
-    parser.add_argument('--ckpt_path', type=str, default='', help='ckpt path for table model')
+    parser.add_argument('--ckpt_path', type=str, default='U4R/StructTable-base', help='ckpt path for table model, which can be downloaded from huggingface')
     parser.add_argument('--cpu', action='store_true', default=False, help='using cpu for inference')
     parser.add_argument('--html', action='store_true', default=False, help='output html format table code')
     args = parser.parse_args()

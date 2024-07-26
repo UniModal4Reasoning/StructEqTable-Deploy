@@ -19,7 +19,7 @@ Table is an effective way to represent structured data in scientific publication
 ## TODO
 
 - [x] Release inference code and checkpoints of StructEqTable.
-- [ ] Support Chinese version of StructEqTable.
+- [x] Support Chinese version of StructEqTable.
 - [ ] Improve the inference speed of StructEqTable.
 
 
@@ -34,13 +34,13 @@ pip install "git+https://github.com/UniModal4Reasoning/StructEqTable-Deploy.git"
 
 ```
 
-## Demo
-- run the demo.py
+## Quick Demo
+- run the demo/demo.py
 ```shell script
 cd demo
-python demo.py \
---image_path demo/demo.png \
---ckpt_path ${CKPT_PATH}
+
+python demo.py \ --image_path ./demo.png \
+  --ckpt_path ${CKPT_PATH}
 ```
 
 - Visualization Results
@@ -52,9 +52,10 @@ python demo.py \
 
 
 ## Acknowledgements
-- [UniMERNet](https://github.com/opendatalab/UniMERNet). A Universal Network for Real-World Mathematical Expression Recognition.
 - [DocGenome](https://github.com/UniModal4Reasoning/DocGenome). An Open Large-scale Scientific Document Benchmark for Training and Testing Multi-modal Large Models.
 - [ChartVLM](https://github.com/UniModal4Reasoning/ChartVLM). A Versatile Benchmark and Foundation Model for Complicated Chart Reasoning.
+- [Pix2Struct](https://github.com/google-research/pix2struct). Screenshot Parsing as Pretraining for Visual Language Understanding.
+- [UniMERNet](https://github.com/opendatalab/UniMERNet). A Universal Network for Real-World Mathematical Expression Recognition.
 - [Donut](https://huggingface.co/naver-clova-ix/donut-base). The UniMERNet's Transformer Encoder-Decoder are referenced from Donut.
 - [Nougat](https://github.com/facebookresearch/nougat). The tokenizer uses Nougat.
 
