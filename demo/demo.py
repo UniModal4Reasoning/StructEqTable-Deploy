@@ -10,18 +10,20 @@ def parse_config():
     parser = argparse.ArgumentParser(description='arg parser')
     parser.add_argument('--image_path', type=str, default='demo.png', help='data path for table image')
     parser.add_argument('--ckpt_path', type=str, default='U4R/StructTable-base', help='ckpt path for table model, which can be downloaded from huggingface')
+    parser.add_argument('-t', '--max_waiting_time', type=int, default=60, help='maximum waiting time of model inference')
     parser.add_argument('--cpu', action='store_true', default=False, help='using cpu for inference')
-    parser.add_argument('--html', action='store_true', default=False, help='output html format table code')
+    parser.add_argument('-f', '--output_format', type=str, nargs='+', default=['latex'], 
+                        help='The model outputs LaTeX format code by default. Simple structured table LaTeX code can be converted to HTML or Markdown format using pypandoc.')
     args = parser.parse_args()
     return args
 
 def main():
     args = parse_config()
-    if args.html:
+    if 'html' in args.output_format or 'markdown' in args.output_format:
         from pypandoc import convert_text
 
     # build model
-    model = build_model(args.ckpt_path, max_new_tokens=4096, max_time=60)
+    model = build_model(args.ckpt_path, max_new_tokens=4096, max_time=args.max_waiting_time)
     if not args.cpu:
         model = model.cuda()
 
@@ -35,12 +37,17 @@ def main():
     # show output latex code of table
     cost_time = time.time() - start_time
     print(f"total cost time: {cost_time:.2f}s")
+
+    if cost_time >= args.max_waiting_time:
+        warn_log = f"\033[93mThe model inference time exceeds the maximum waiting time {args.max_waiting_time} seconds, the result may be incomplete.\n" \
+        "Please increase the maximum waiting time with argument --max_waiting_time or Model may not support the type of input table image \033[0m"
+        print(warn_log)
+
+    
     for i, latex_code in enumerate(output):
-        if args.html:
-            html_code = convert_text(latex_code, 'html', format='latex')
-            print(f"Table {i} HTML code:\n{html_code}")
-        else:
-            print(f"Table {i} LaTex code:\n{latex_code}")
+        for tgt_fmt in args.output_format:
+            tgt_code = convert_text(latex_code, tgt_fmt, format='latex') if tgt_fmt != 'latex' else latex_code
+            print(f"Table {i} {tgt_fmt.upper()} format output:\n{tgt_code}")
 
 
 if __name__ == '__main__':
