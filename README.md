@@ -15,12 +15,15 @@ Welcome to the official repository of StructEqTable-Deploy, a solution that conv
 ## Abstract
 Table is an effective way to represent structured data in scientific publications, financial statements, invoices, web pages, and many other scenarios. Extracting tabular data from a visual table image and performing the downstream reasoning tasks according to the extracted data is challenging, mainly due to that tables often present complicated column and row headers with spanning cell operation. To address these challenges, we present TableX, a large-scale multi-modal table benchmark extracted from [DocGenome benchmark](https://unimodal4reasoning.github.io/DocGenome_page/) for table pre-training, comprising more than 2 million high-quality Image-LaTeX pair data covering 156 disciplinary classes. Besides, benefiting from such large-scale data, we train an end-to-end model, StructEqTable, which provides the capability to precisely obtain the corresponding LaTeX description from a visual table image and perform multiple table-related reasoning tasks, including structural extraction and question answering, broadening its application scope and potential.
 
+## Release
+- [2024/7/30] 🔥 We have released the first version of StructEqTable. (Current version of StructEqTable is able to process table images from scientific documents such as arXiv, Scihub papers. Times New Roman And Songti(宋体) are main fonts used in table image, other fonts may decrease the accuracy of the model's output.)
 
 ## TODO
 
 - [x] Release inference code and checkpoints of StructEqTable.
 - [x] Support Chinese version of StructEqTable.
-- [ ] Improve the inference speed of StructEqTable.
+- [ ] Expand more domains of table image to improve the model's general capabilities.
+- [ ] Accelerated version of StructEqTable using TensorRT-LLM.
 
 
 ### Installation
@@ -35,13 +38,34 @@ pip install "git+https://github.com/UniModal4Reasoning/StructEqTable-Deploy.git"
 ```
 
 ## Quick Demo
-- run the demo/demo.py
+- Run the demo/demo.py
 ```shell script
 cd demo
 
-python demo.py \ --image_path ./demo.png \
-  --ckpt_path ${CKPT_PATH}
+python demo.py \
+  --image_path ./demo.png \
+  --ckpt_path ${CKPT_PATH} \
+  --output_format latex
 ```
+
+- Obtain other format output
+
+  Our model output Latex format code by default. 
+  If you want to get other format like HTML or Markdown, 
+  `pypandoc` support convert latex format code into HTML and Markdown format for simple table (table has no merge cell ).
+
+```shell script
+sudo apt install pandoc
+pip install pypandoc
+
+cd demo
+
+python demo.py \
+  --image_path ./demo.png \
+  --ckpt_path ${CKPT_PATH} \
+  --output_format html markdown
+```
+
 
 - Visualization Results
     - The input data are sampled from SciHub domain.
