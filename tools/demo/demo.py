@@ -14,6 +14,7 @@ def parse_config():
     parser.add_argument('--cpu', action='store_true', default=False, help='using cpu for inference')
     parser.add_argument('-f', '--output_format', type=str, nargs='+', default=['latex'], 
                         help='The model outputs LaTeX format code by default. Simple structured table LaTeX code can be converted to HTML or Markdown format using pypandoc.')
+    parser.add_argument('--tensorrt_path', type=str, default=None, help='enable tensorrt for model acceleration')
     args = parser.parse_args()
     return args
 
@@ -23,8 +24,13 @@ def main():
         from pypandoc import convert_text
 
     # build model
-    model = build_model(args.ckpt_path, max_new_tokens=4096, max_time=args.max_waiting_time)
-    if not args.cpu:
+    model = build_model(
+        args.ckpt_path, 
+        max_new_tokens=4096, 
+        max_time=args.max_waiting_time,
+        tensorrt_path=args.tensorrt_path
+    )
+    if not args.cpu and args.tensorrt_path is None:
         model = model.cuda()
 
     # model inference
