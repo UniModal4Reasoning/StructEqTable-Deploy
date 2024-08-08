@@ -17,7 +17,7 @@ Table is an effective way to represent structured data in scientific publication
 
 ## Changelog
 Tips: Current version of StructEqTable is able to process table images from scientific documents such as arXiv, Scihub papers. Times New Roman And Songti(宋体) are main fonts used in table image, other fonts may decrease the accuracy of the model's output.
-- [2024/8/07] 🔥 We have released the TensorRT accelerated version, which only takes about 1 second for most images on GPU A100. Please follow the tutorial to install the environment and compile the model weights.
+- [2024/8/08] 🔥 We have released the TensorRT accelerated version, which only takes about 1 second for most images on GPU A100. Please follow the tutorial to install the environment and compile the model weights.
 - [2024/7/30] We have released the first version of StructEqTable. 
 
 ## TODO
@@ -26,11 +26,11 @@ Tips: Current version of StructEqTable is able to process table images from scie
 - [x] Support Chinese version of StructEqTable.
 - [x] Accelerated version of StructEqTable using TensorRT-LLM.
 - [ ] Expand more domains of table image to improve the model's general capabilities.
+- [ ] Release our table pre-training and fine-tuning code
 
 ## Efficient Inference
 Our model now supports TensorRT-LLM deployment, achieving a 10x or more speedup in during inference.  
 Please refer to [GETTING_STARTED.md](docs/GETTING_STARTED.md) to learn how to depoly.
-
 
 ## Installation
 ``` bash 
