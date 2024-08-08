@@ -1,4 +1,3 @@
-import re
 import torch
 
 from torch import nn
@@ -6,7 +5,7 @@ from transformers import AutoModelForVision2Seq, AutoProcessor
 
 
 class StructTable(nn.Module):
-    def __init__(self, model_path='U4R/StructTable-base', max_new_tokens=4096, max_time=60):
+    def __init__(self, model_path='U4R/StructTable-base', max_new_tokens=4096, max_time=60, **kwargs):
         super().__init__()
         self.model_path = model_path
         self.max_new_tokens = max_new_tokens
