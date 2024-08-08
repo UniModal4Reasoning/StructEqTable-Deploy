@@ -1,12 +1,21 @@
 # Getting Started
 [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM) is used for model inference speeding up.  
 
+All the codes are successfully tested in the following enviroments:
+* Linux (18.04, 20.04, 22.04)
+* Python 3.10
+* Pytorch 2.0 or higher
+* CUDA 12.1 or higher
+* TensorRT-LLM 0.11.0 (stable version)
 
 ### 1. Conda or Python Environment Preparation
-* Please follow the step 1, 2 from the [official tutorial](https://nvidia.github.io/TensorRT-LLM/installation/linux.html) of TensorRT-LLM to install the environment. 
+
+
+* Please follow the step 1, 2 from the [official tutorial](https://nvidia.github.io/TensorRT-LLM/installation/linux.html) of TensorRT-LLM to install the environment.  
+
+Note we used the TensorRT-LLM **stable version `0.11.0`**.
 ``` bash
 # Installing on Linux
-
 Step 1. Retrieve and launch the docker container (optional).
 
     You can pre-install the environment using the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit) to avoid manual environment configuration.
@@ -26,7 +35,7 @@ Step 2. Install TensorRT-LLM.
     # Install the latest preview version (corresponding to the main branch) of TensorRT-LLM.
     # If you want to install the stable version (corresponding to the release branch), please
     # remove the `--pre` option.
-    pip3 install tensorrt_llm -U --pre --extra-index-url https://pypi.nvidia.com
+    pip3 install tensorrt_llm==0.11.0 --extra-index-url https://pypi.nvidia.com
 
     # Check installation
     python3 -c "import tensorrt_llm"
@@ -66,7 +75,7 @@ StructEqTable-Deploy
 We provide a script to help users quickly implement model compilation.
 
 ``` bash
-cd StructEqTable-Deploytools
+cd StructEqTable-Deploy/tools
 # execute the script to quickly compile the model.
 bash scripts/build_tensorrt.sh 
 ```

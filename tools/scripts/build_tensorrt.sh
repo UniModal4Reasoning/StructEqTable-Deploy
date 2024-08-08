@@ -5,7 +5,7 @@ MODEL_OUTPUT=${2:-"../ckpts/StructTable-base-TensorRT"}
 MODEL_TYPE=${3:-"StructEqTable"}
 
 if [ ! -d $MODEL_OUTPUT ]; then
-    mkdir -p MODEL_OUTPUT
+    mkdir -p $MODEL_OUTPUT
 fi
 
 # Step1 Convert the model into TensorrtLLM checkpoint format
