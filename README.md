@@ -22,8 +22,9 @@ Table is an effective way to represent structured data in scientific publication
 
 - [x] Release inference code and checkpoints of StructEqTable.
 - [x] Support Chinese version of StructEqTable.
-- [ ] Expand more domains of table image to improve the model's general capabilities.
 - [ ] Accelerated version of StructEqTable using TensorRT-LLM.
+- [ ] Expand more domains of table image to improve the model's general capabilities.
+- [ ] Release our table pre-training and fine-tuning code
 
 
 ### Installation
