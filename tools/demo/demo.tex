@@ -1,0 +1,19 @@
+\documentclass{article}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow} 
+\usepackage[accsupp]{axessibility}  
+\usepackage{CJKutf8}
+\usepackage{orcidlink}
+
+\begin{document}
+\begin{CJK}{UTF8}{gbsn}
+
+% Put your latex code here.
+
+\begin{tabular}{l@{\hskip 0.4in}ccc@{\hskip 0.3in}ccc}\hline \multicolumn{1}{c}{\multirow{2}{*}{Model}} & \multicolumn{2}{c}{\bf MCQA} & \multicolumn{2}{c}{\bf NSP} & \multicolumn{2}{c}{\bf PI} \\\multicolumn{1}{c}{} & Accuracy & F1 & Accuracy & F1 & Accuracy & F1 \\ \hline FastText & 0.318 & 0.317 & 0.496 & 0.496 & 0.762 & 0.806 \\ELMo & 0.318 & 0.318 & 0.691 & 0.691 & 0.807 & 0.867 \\BERT & 0.346 & 0.346 & 0.514 & 0.514 & 0.801 & 0.857 \\ \hline \end{tabular}
+
+\end{CJK}
+\end{document}
+

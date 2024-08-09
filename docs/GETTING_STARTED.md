@@ -110,3 +110,8 @@ Table 0 LATEX format output:
 \begin{tabular}{l@{\hskip 0.4in}ccc@{\hskip 0.3in}ccc}\hline \multicolumn{1}{c}{\multirow{2}{*}{Model}} & \multicolumn{2}{c}{\bf MCQA} & \multicolumn{2}{c}{\bf NSP} & \multicolumn{2}{c}{\bf PI} \\\multicolumn{1}{c}{} & Accuracy & F1 & Accuracy & F1 & Accuracy & F1 \\ \hline FastText & 0.318 & 0.317 & 0.496 & 0.496 & 0.762 & 0.806 \\ELMo & 0.318 & 0.318 & 0.691 & 0.691 & 0.807 & 0.867 \\BERT & 0.346 & 0.346 & 0.514 & 0.514 & 0.801 & 0.857 \\ \hline \end{tabular}
 ```
 
+
+### 3. Table Visualization
+You can copy the output LaTeX code into [demo.tex](../tools/demo/demo.tex), then use [Overleaf](https://www.overleaf.com/project) or Visual Studio Code LaTeX Workshop Extension for table visualization.
+
+![](./demo_3.png)
