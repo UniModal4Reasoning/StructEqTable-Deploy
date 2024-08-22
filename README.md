@@ -54,9 +54,8 @@ pip install struct-eqtable==0.1.0
 
 | Model | Image Token Num | Model Size | Training Data | Data Augmentation | TensorRT | HuggingFace |
 |---------------------|---------------------|------------|------------------|-------------------|----------|-------------------|
-| StructEqTable-base | 4096 | ~300M | DocGenome | [ ] | [x] | [v0.1](https://huggingface.co/U4R/StructTable-base/tree/v0.1) |
-| StructEqTable-base | 2048 | ~300M | DocGenome | [x] | [x] | [v0.2](https://huggingface.co/U4R/StructTable-base/tree/v0.2) |
-
+| StructEqTable-base | 4096 | ~300M | DocGenome |   | &check | [v0.1](https://huggingface.co/U4R/StructTable-base/tree/v0.1) |
+| StructEqTable-base | 2048 | ~300M | DocGenome | &check | &check | [v0.2](https://huggingface.co/U4R/StructTable-base/tree/v0.2) |
 
 
 ## Quick Demo
