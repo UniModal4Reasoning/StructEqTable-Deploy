@@ -10,6 +10,7 @@ def parse_config():
     parser = argparse.ArgumentParser(description='arg parser')
     parser.add_argument('--image_path', type=str, default='demo.png', help='data path for table image')
     parser.add_argument('--ckpt_path', type=str, default='U4R/StructTable-base', help='ckpt path for table model, which can be downloaded from huggingface')
+    parser.add_argument('--max_new_tokens', type=int, default=2048, help='maximum output tokens of model inference')
     parser.add_argument('-t', '--max_waiting_time', type=int, default=60, help='maximum waiting time of model inference')
     parser.add_argument('--cpu', action='store_true', default=False, help='using cpu for inference')
     parser.add_argument('-f', '--output_format', type=str, nargs='+', default=['latex'], 
@@ -26,7 +27,7 @@ def main():
     # build model
     model = build_model(
         args.ckpt_path, 
-        max_new_tokens=4096, 
+        max_new_tokens=args.max_new_tokens, 
         max_time=args.max_waiting_time,
         tensorrt_path=args.tensorrt_path
     )

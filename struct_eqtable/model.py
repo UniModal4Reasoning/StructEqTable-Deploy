@@ -47,6 +47,7 @@ class StructTable(nn.Module):
             max_new_tokens=self.max_new_tokens,
             max_time=self.max_generate_time
         )
+
         latex_codes = self.data_processor.batch_decode(model_output, skip_special_tokens=True)
         # postprocess
         for i, code in enumerate(latex_codes):

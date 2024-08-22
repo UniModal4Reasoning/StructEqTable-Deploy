@@ -2,7 +2,9 @@ set -x
 
 HF_CKPT_PATH=${1:-"../ckpts/StructTable-base"}
 MODEL_OUTPUT=${2:-"../ckpts/StructTable-base-TensorRT"}
-MODEL_TYPE=${3:-"StructEqTable"}
+MAX_IMAGE_TOKEN_NUM=${3:-2048}
+MAX_OUPTPUT_TOKEN_NUM=${4:-2048}
+MODEL_TYPE=${5:-"StructEqTable"}
 
 if [ ! -d $MODEL_OUTPUT ]; then
     mkdir -p $MODEL_OUTPUT
@@ -34,9 +36,9 @@ trtllm-build --checkpoint_dir $MODEL_OUTPUT/trt_models/float16/decoder \
     --remove_input_padding enable \
     --context_fmha disable \
     --max_beam_width 1 \
-    --max_batch_size 8 \
-    --max_seq_len 4096 \
-    --max_encoder_input_len 4096 \
+    --max_batch_size 1 \
+    --max_seq_len $MAX_OUPTPUT_TOKEN_NUM \
+    --max_encoder_input_len $MAX_IMAGE_TOKEN_NUM \
     --max_input_len 1
 
 # Step3 build visual engine
