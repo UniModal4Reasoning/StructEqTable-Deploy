@@ -17,7 +17,8 @@ Table is an effective way to represent structured data in scientific publication
 
 ## Changelog
 Tips: Current version of StructEqTable is able to process table images from scientific documents such as arXiv, Scihub papers. Times New Roman And Songti(宋体) are main fonts used in table image, other fonts may decrease the accuracy of the model's output.
-- [2024/8/08] 🔥 We have released the TensorRT accelerated version, which only takes about 1 second for most images on GPU A100. Please follow the tutorial to install the environment and compile the model weights.
+- **[2024/8/22] 🔥 We have released our [latest model](https://huggingface.co/U4R/StructTable-base/tree/v0.2), fine-tuned on the DocGenome dataset. This version features improved inference speed and robustness, achieved through data augmentation and reduced image token num.** 
+- [2024/8/08] We have released the TensorRT accelerated version, which only takes about 1 second for most images on GPU A100. Please follow the tutorial to install the environment and compile the model weights.
 - [2024/7/30] We have released the first version of StructEqTable. 
 
 ## TODO
@@ -48,6 +49,14 @@ pip install "git+https://github.com/UniModal4Reasoning/StructEqTable-Deploy.git"
 # or Install from PyPI
 pip install struct-eqtable==0.1.0
 ```
+
+## Model Zoo
+
+| Model | Image Token Num | Model Size | Training Data | Data Augmentation | TensorRT | HuggingFace |
+|---------------------|---------------------|------------|------------------|-------------------|----------|-------------------|
+| StructEqTable-base | 4096 | ~300M | DocGenome |  | ☑️ | [v0.1](https://huggingface.co/U4R/StructTable-base/tree/v0.1) |
+| StructEqTable-base | 2048 | ~300M | DocGenome | ☑️ | ☑️ | [v0.2](https://huggingface.co/U4R/StructTable-base/tree/v0.2) |
+
 
 ## Quick Demo
 - Run the demo/demo.py

@@ -53,7 +53,7 @@ Tips: If you want to install the environment manually, please note that the vers
 ### 2. Model Compilation
 You can refer to the [official tutorial](https://nvidia.github.io/TensorRT-LLM/quick-start-guide.html) to complete the model compilation, or follow our instructions and use the provided scripts to implement it.
 
-#### 2.1 Download [StructEqTable checkpoints](https://huggingface.co/U4R/StructTable-base/tree/main)
+#### 2.1 Download [StructEqTable checkpoints](https://huggingface.co/U4R/StructTable-base/tree/v0.2)
 ```
 cd StructEqTable-Deploy
 
