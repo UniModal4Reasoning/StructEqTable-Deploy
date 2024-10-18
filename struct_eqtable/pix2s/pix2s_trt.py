@@ -5,14 +5,18 @@ import json
 import torch
 import torch.nn as nn
 
-import tensorrt_llm
-import tensorrt as trt
-import tensorrt_llm.profiler as profiler
+try:
+    import tensorrt_llm
+    import tensorrt as trt
+    import tensorrt_llm.profiler as profiler
+
+    from tensorrt_llm._utils import str_dtype_to_trt, torch_to_numpy
+    from tensorrt_llm.lora_manager import LoraManager
+    from tensorrt_llm.runtime import Session, TensorInfo, ModelConfig, SamplingConfig
+except:
+    print("\033[93mimport tensorrt_llm failed, if do not use tensorrt, ignore this message\033[0m")
 
 from typing import List
-from tensorrt_llm._utils import str_dtype_to_trt, torch_to_numpy
-from tensorrt_llm.lora_manager import LoraManager
-from tensorrt_llm.runtime import Session, TensorInfo, ModelConfig, SamplingConfig
 from transformers import AutoProcessor, AutoTokenizer, AutoConfig
 
 
@@ -29,7 +33,7 @@ def trt_dtype_to_torch(dtype):
         raise TypeError("%s is not supported" % dtype)
 
 
-class StructTableTensorRT(nn.Module):
+class Pix2StructTensorRT(nn.Module):
 
     def __init__(self, model_path, tensorrt_path, batch_size=1, max_new_tokens=4096, **kwargs):
         
@@ -69,6 +73,7 @@ class StructTableTensorRT(nn.Module):
         self.init_image_processor()
 
         self.special_str_list = ['\\midrule', '\\hline']
+        self.supported_output_format = ['latex']
 
     def postprocess_latex_code(self, code):
         for special_str in self.special_str_list:
@@ -104,7 +109,7 @@ class StructTableTensorRT(nn.Module):
         self.model_config = self.model.decoder_model_config
         self.runtime_mapping = self.model.decoder_runtime_mapping
 
-    def __call__(self, image):
+    def __call__(self, image, **kwargs):
         # process image to tokens
         image_tokens = self.data_processor.image_processor(
             images=image,

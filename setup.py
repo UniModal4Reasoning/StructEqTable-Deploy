@@ -7,7 +7,7 @@ def write_version_to_file(version, target_file):
         print('__version__ = "%s"' % version, file=f)
 
 if __name__ == '__main__':
-    version = '0.1.0'
+    version = '0.3.0'
     write_version_to_file(version, 'struct_eqtable/version.py')
     with Path(Path(__file__).parent,
               'README.md').open(encoding='utf-8') as file:
