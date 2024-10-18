@@ -107,7 +107,33 @@ You may get output as follows:
 ```
 total cost time: 0.88s
 Table 0 LATEX format output:
-\begin{tabular}{l@{\hskip 0.4in}ccc@{\hskip 0.3in}ccc}\hline \multicolumn{1}{c}{\multirow{2}{*}{Model}} & \multicolumn{2}{c}{\bf MCQA} & \multicolumn{2}{c}{\bf NSP} & \multicolumn{2}{c}{\bf PI} \\\multicolumn{1}{c}{} & Accuracy & F1 & Accuracy & F1 & Accuracy & F1 \\ \hline FastText & 0.318 & 0.317 & 0.496 & 0.496 & 0.762 & 0.806 \\ELMo & 0.318 & 0.318 & 0.691 & 0.691 & 0.807 & 0.867 \\BERT & 0.346 & 0.346 & 0.514 & 0.514 & 0.801 & 0.857 \\ \hline \end{tabular}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Quantity $\backslash$ Unit System & International System SI (kg-m-s) & Traditional aeronautical (lb-ft-s) & Traditional structural (lb-inch-s) \\
+\hline
+Mass (translational inertia), $m$ & kilogram mass (kg) & slug = lb-s$^2$/f & lb-s$^2$/inch \\
+\hline
+Length, translational motion & meter (m) & foot (ft) & inch (in.) \\
+\hline
+Time, $t$ & second (s) & second (s) & second (s) \\
+\hline
+Force, translational action & newton (N) = kg-m/s$^2$ & pound force (lb) & pound force (lb) \\
+\hline
+Translational stiffness constant, $k$ & N/m & lb/ft & lb/inch \\
+\hline
+Translational damping constant, $c$ & N/(m/s) = N-s/m & lb/(ft/s) = lb-s/ft & lb/(inch/s) = lb-s/inch \\
+\hline
+Angle, rotational motion & radial (rad), which is dimensionless & radial (rad), which is dimensionless & radial (rad), which is dimensionless \\
+\hline
+Rotational inertia, $J$ & kg-m$^2$ & slug-ft$^2$ = lb-s$^2$ - ft & lb-s$^2$ - inch \\
+\hline
+Moment or torque, rotational action & N-m & lb-ft & lb-inch \\
+\hline
+Rotational stiffness constant, $k_\theta$ & (N-m)/rad = N-m & (lb-ft)/rad = lb-ft & (lb-inch)/rad = lb-inch \\
+\hline
+Rotational damping constant, $c_\theta$ & (N-m)/(rad/s) = N-m-s & (lb-ft)/(rad/s) = lb-ft-s & (lb-inch)/(rad/s) = lb-inch-s \\
+\hline
+\end{tabular}
 ```
 
 

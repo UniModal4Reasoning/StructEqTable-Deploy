@@ -4,8 +4,8 @@ from torch import nn
 from transformers import AutoModelForVision2Seq, AutoProcessor
 
 
-class StructTable(nn.Module):
-    def __init__(self, model_path='U4R/StructTable-base', max_new_tokens=4096, max_time=60, **kwargs):
+class Pix2Struct(nn.Module):
+    def __init__(self, model_path='U4R/StructTable-base', max_new_tokens=1024, max_time=30, **kwargs):
         super().__init__()
         self.model_path = model_path
         self.max_new_tokens = max_new_tokens
@@ -16,6 +16,7 @@ class StructTable(nn.Module):
         self.init_model(model_path)
 
         self.special_str_list = ['\\midrule', '\\hline']
+        self.supported_output_format = ['latex']
 
     def postprocess_latex_code(self, code):
         for special_str in self.special_str_list:
@@ -29,7 +30,7 @@ class StructTable(nn.Module):
     def init_image_processor(self, image_processor_path):
         self.data_processor = AutoProcessor.from_pretrained(image_processor_path)
 
-    def forward(self, image):
+    def forward(self, image, **kwargs):
         # process image to tokens
         image_tokens = self.data_processor.image_processor(
             images=image,
