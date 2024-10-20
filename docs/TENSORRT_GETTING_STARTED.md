@@ -140,4 +140,4 @@ Rotational damping constant, $c_\theta$ & (N-m)/(rad/s) = N-m-s & (lb-ft)/(rad/s
 ### 3. Table Visualization
 You can copy the output LaTeX code into [demo.tex](../tools/demo/demo.tex), then use [Overleaf](https://www.overleaf.com/project) or Visual Studio Code LaTeX Workshop Extension for table visualization.
 
-![](./demo_3.png)
+![](./imgs/demo.png)
