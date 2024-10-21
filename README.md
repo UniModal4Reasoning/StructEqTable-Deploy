@@ -52,11 +52,11 @@ pip install struct-eqtable==0.3.0
 
 ## Model Zoo
 
-| Model | Model Size | Training Data | Data Augmentation | LMDepoly | TensorRT | HuggingFace |
+| Base Model | Model Size | Training Data | Data Augmentation | LMDepoly | TensorRT | HuggingFace |
 |---------------------|------------|------------------|-------------------|----------|----------|-------------------|
-| StructEqTable-InternVL | ~1B | DocGenome and Synthetic Data | ✔ | ✔ | | [v0.3](https://huggingface.co/U4R/StructTable-InternVL-1B/tree/main) |
-| StructEqTable-base | ~300M | DocGenome | ✔ | | ✔ | [v0.2](https://huggingface.co/U4R/StructTable-base/tree/v0.2) |
-| StructEqTable-base | ~300M | DocGenome | | | ✔ | [v0.1](https://huggingface.co/U4R/StructTable-base/tree/v0.1) |
+| InternVL2-1B | ~1B | DocGenome and Synthetic Data | ✔ | ✔ | | [StructTable v0.3](https://huggingface.co/U4R/StructTable-InternVL-1B/tree/main) |
+| Pix2Struct-base | ~300M | DocGenome | ✔ | | ✔ | [StructTable v0.2](https://huggingface.co/U4R/StructTable-base/tree/v0.2) |
+| Pix2Struct-base | ~300M | DocGenome | | | ✔ | [StructTable v0.1](https://huggingface.co/U4R/StructTable-base/tree/v0.1) |
 
 
 
@@ -67,7 +67,7 @@ cd tools/demo
 
 python demo.py \
   --image_path ./demo.png \
-  --ckpt_path U4R/StructTable-InternVL-1B \
+  --ckpt_path U4R/StructTable-InternVL2-1B \
   --output_format latex
 ```
 
@@ -76,7 +76,7 @@ python demo.py \
 ```shell script
 python demo.py \
   --image_path ./demo.png \
-  --ckpt_path U4R/StructTable-InternVL-1B \
+  --ckpt_path U4R/StructTable-InternVL2-1B \
   --output_format html markdown
 ```
 
@@ -92,18 +92,16 @@ cd tools/demo
 
 python demo.py \
   --image_path ./demo.png \
-  --ckpt_path U4R/StructTable-InternVL-1B \
+  --ckpt_path U4R/StructTable-InternVL2-1B \
   --output_format latex \
   --lmdeploy
 ```
 
 
-- Visualization Results
-    - The input data are sampled from SciHub domain.
+- Visualization Result
 
-![](docs/demo_1.png)
-
-![](docs/demo_2.png)
+  You can copy the output LaTeX code into [demo.tex](../tools/demo/demo.tex), then use [Overleaf](https://www.overleaf.com/project) for table visualization.
+![](docs/imgs/output.png)
 
 
 ## Acknowledgements

@@ -1,45 +1,50 @@
-\documentclass{article}
-\usepackage[table]{xcolor}
+
+\documentclass[border=20pt]{standalone}
+\usepackage{blindtext}%
+\usepackage{subcaption}
+\usepackage{url}
 \usepackage{graphicx}
+\usepackage{caption}
+\usepackage{multirow}
 \usepackage{booktabs}
-\usepackage{multirow} 
-\usepackage[accsupp]{axessibility}  
-\usepackage{CJKutf8}
-\usepackage{orcidlink}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{xcolor,soul,framed}
+\usepackage{xeCJK}
+%\usepackage{fontspec}
+%\usepackage[margin=1in]{geometry} 
+\usepackage{printlen}
+\usepackage{amsmath,amssymb,mathtools,bm,mathrsfs,textcomp}
+\setlength{\parindent}{0pt}
 
 \begin{document}
-\begin{CJK}{UTF8}{gbsn}
-
-% Put your latex code here.
 
 \begin{tabular}{|c|c|c|c|}
-\hline
-Quantity $\backslash$ Unit System & International System SI (kg-m-s) & Traditional aeronautical (lb-ft-s) & Traditional structural (lb-inch-s) \\
-\hline
-Mass (translational inertia), $m$ & kilogram mass (kg) & slug = lb-s$^2$/f & lb-s$^2$/inch \\
-\hline
-Length, translational motion & meter (m) & foot (ft) & inch (in.) \\
-\hline
-Time, $t$ & second (s) & second (s) & second (s) \\
-\hline
-Force, translational action & newton (N) = kg-m/s$^2$ & pound force (lb) & pound force (lb) \\
-\hline
-Translational stiffness constant, $k$ & N/m & lb/ft & lb/inch \\
-\hline
-Translational damping constant, $c$ & N/(m/s) = N-s/m & lb/(ft/s) = lb-s/ft & lb/(inch/s) = lb-s/inch \\
-\hline
-Angle, rotational motion & radial (rad), which is dimensionless & radial (rad), which is dimensionless & radial (rad), which is dimensionless \\
-\hline
-Rotational inertia, $J$ & kg-m$^2$ & slug-ft$^2$ = lb-s$^2$ - ft & lb-s$^2$ - inch \\
-\hline
-Moment or torque, rotational action & N-m & lb-ft & lb-inch \\
-\hline
-Rotational stiffness constant, $k_\theta$ & (N-m)/rad = N-m & (lb-ft)/rad = lb-ft & (lb-inch)/rad = lb-inch \\
-\hline
-Rotational damping constant, $c_\theta$ & (N-m)/(rad/s) = N-m-s & (lb-ft)/(rad/s) = lb-ft-s & (lb-inch)/(rad/s) = lb-inch-s \\
-\hline
+  \hline
+  Quantity $\backslash$ Unit System & International System SI (kg-m-s) & Traditional aeronautical (lb-ft-s) & Traditional structural (lb-inch-s) \\
+  \hline
+  Mass (translational inertia), $m$ & kilogram mass (kg) & slug = lb-s$^2$/f & lb-s$^2$/inch \\
+  \hline
+  Length, translational motion & meter (m) & foot (ft) & inch (in.) \\
+  \hline
+  Time, $t$ & second (s) & second (s) & second (s) \\
+  \hline
+  Force, translational action & newton (N) = kg-m/s$^2$ & pound force (lb) & pound force (lb) \\
+  \hline
+  Translational stiffness constant, $k$ & N/m & lb/ft & lb/inch \\
+  \hline
+  Translational damping constant, $c$ & N/(m/s) = N-s/m & lb/(ft/s) = lb-s/ft & lb/(inch/s) = lb-s/inch \\
+  \hline
+  Angle, rotational motion & radial (rad), which is dimensionless & radial (rad), which is dimensionless & radial (rad), which is dimensionless \\
+  \hline
+  Rotational inertia, $J$ & kg-m$^2$ & slug-ft$^2$ = lb-s$^2$ - ft & lb-s$^2$ - inch \\
+  \hline
+  Moment or torque, rotational action & N-m & lb-ft & lb-inch \\
+  \hline
+  Rotational stiffness constant, $k_\theta$ & (N-m)/rad = N-m & (lb-ft)/rad = lb-ft & (lb-inch)/rad = lb-inch \\
+  \hline
+  Rotational damping constant, $c_\theta$ & (N-m)/(rad/s) = N-m-s & (lb-ft)/(rad/s) = lb-ft-s & (lb-inch)/(rad/s) = lb-inch-s \\
+  \hline
 \end{tabular}
 
-\end{CJK}
 \end{document}
-
