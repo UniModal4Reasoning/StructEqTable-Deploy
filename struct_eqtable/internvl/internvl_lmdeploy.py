@@ -51,7 +51,7 @@ class InternVL_LMDeploy(nn.Module):
         if not isinstance(images, list):
             images = [images] 
         
-        prompts = self.prompt_template[output_format] * len(images)
+        prompts = [self.prompt_template[output_format]] * len(images)
         generation_config = GenerationConfig(
             max_new_tokens=self.max_new_tokens,
             do_sample=False,

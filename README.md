@@ -2,9 +2,7 @@
 <h1>StructEqTable-Deploy: A High-efficiency Open-source Toolkit for Table-to-Latex Transformation</h1>
 
 
-[[ Related Paper ]](https://arxiv.org/abs/2406.11633) [[ Website ]](https://unimodal4reasoning.github.io/DocGenome_page/) [[ Dataset (Google Drive)]](https://drive.google.com/drive/folders/1OIhnuQdIjuSSDc_QL2nP4NwugVDgtItD) [[ Dataset (Hugging Face) ]](https://huggingface.co/datasets/U4R/DocGenome/tree/main)
-
-[[Models 🤗(Hugging Face)]](https://huggingface.co/U4R/StructTable-InternVL-1B/tree/main)
+[[ Paper ]](https://arxiv.org/abs/2406.11633) [[ Website ]](https://unimodal4reasoning.github.io/DocGenome_page/) [[ Dataset🤗 ]](https://huggingface.co/datasets/U4R/DocGenome/tree/main) [[ Models🤗 ]](https://huggingface.co/U4R/StructTable-InternVL2-1B/tree/main)
 
 
 </div>
@@ -16,7 +14,7 @@ Welcome to the official repository of StructEqTable-Deploy, a solution that conv
 Table is an effective way to represent structured data in scientific publications, financial statements, invoices, web pages, and many other scenarios. Extracting tabular data from a visual table image and performing the downstream reasoning tasks according to the extracted data is challenging, mainly due to that tables often present complicated column and row headers with spanning cell operation. To address these challenges, we present TableX, a large-scale multi-modal table benchmark extracted from [DocGenome benchmark](https://unimodal4reasoning.github.io/DocGenome_page/) for table pre-training, comprising more than 2 million high-quality Image-LaTeX pair data covering 156 disciplinary classes. Besides, benefiting from such large-scale data, we train an end-to-end model, StructEqTable, which provides the capability to precisely obtain the corresponding LaTeX description from a visual table image and perform multiple table-related reasoning tasks, including structural extraction and question answering, broadening its application scope and potential.
 
 ## Changelog
-- [2024/10/19] 🔥 We have released our **latest model [StructTable-InternVL2-1B](https://huggingface.co/U4R/StructTable-InternVL-1B/tree/main)**! 
+- [2024/10/19] 🔥 We have released our **latest model [StructTable-InternVL2-1B](https://huggingface.co/U4R/StructTable-InternVL2-1B/tree/main)**! 
 
   Thanks to IntenrVL2 powerful foundational capabilities, and through fine-tuning on the synthetic tabular data and DocGenome dataset, StructTable can convert table image into various common table formats including LaTeX, HTML, and Markdown. Moreover, inference speed has been significantly improved compared to the v0.2 version.
 - [2024/8/22] We have released our StructTable-base-v0.2, fine-tuned on the DocGenome dataset. This version features improved inference speed and robustness, achieved through data augmentation and reduced image token num.
@@ -29,7 +27,7 @@ Table is an effective way to represent structured data in scientific publication
 - [x] Support Chinese version of StructEqTable.
 - [x] Accelerated version of StructEqTable using TensorRT-LLM.
 - [x] Expand more domains of table image to improve the model's general capabilities.
-- [x] Efficient inference of StructTable-InternVL2-1B by [LMDepoly](https://github.com/InternLM/lmdeploy) Tookit.
+- [x] Efficient inference of StructTable-InternVL2-1B by [LMDeploy](https://github.com/InternLM/lmdeploy) Tookit.
 - [ ] Release our table pre-training and fine-tuning code
 
 
@@ -52,9 +50,9 @@ pip install struct-eqtable==0.3.0
 
 ## Model Zoo
 
-| Base Model | Model Size | Training Data | Data Augmentation | LMDepoly | TensorRT | HuggingFace |
+| Base Model | Model Size | Training Data | Data Augmentation | LMDeploy | TensorRT | HuggingFace |
 |---------------------|------------|------------------|-------------------|----------|----------|-------------------|
-| InternVL2-1B | ~1B | DocGenome and Synthetic Data | ✔ | ✔ | | [StructTable v0.3](https://huggingface.co/U4R/StructTable-InternVL-1B/tree/main) |
+| InternVL2-1B | ~1B | DocGenome and Synthetic Data | ✔ | ✔ | | [StructTable v0.3](https://huggingface.co/U4R/StructTable-InternVL2-1B/tree/main) |
 | Pix2Struct-base | ~300M | DocGenome | ✔ | | ✔ | [StructTable v0.2](https://huggingface.co/U4R/StructTable-base/tree/v0.2) |
 | Pix2Struct-base | ~300M | DocGenome | | | ✔ | [StructTable v0.1](https://huggingface.co/U4R/StructTable-base/tree/v0.1) |
 
@@ -109,7 +107,7 @@ python demo.py \
 - [ChartVLM](https://github.com/UniModal4Reasoning/ChartVLM). A Versatile Benchmark and Foundation Model for Complicated Chart Reasoning.
 - [Pix2Struct](https://github.com/google-research/pix2struct). Screenshot Parsing as Pretraining for Visual Language Understanding.
 - [InternVL Family](https://github.com/OpenGVLab/InternVL). A Series of Powerful Foundational Vision-Language Models.
-- [LMDepoly](https://github.com/InternLM/lmdeploy). A toolkit for compressing, deploying, and serving LLM and MLLM.
+- [LMDeploy](https://github.com/InternLM/lmdeploy). A toolkit for compressing, deploying, and serving LLM and MLLM.
 - [UniMERNet](https://github.com/opendatalab/UniMERNet). A Universal Network for Real-World Mathematical Expression Recognition.
 - [Donut](https://huggingface.co/naver-clova-ix/donut-base). The UniMERNet's Transformer Encoder-Decoder are referenced from Donut.
 - [Nougat](https://github.com/facebookresearch/nougat). Data Augmentation follows Nougat.  
