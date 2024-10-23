@@ -6,11 +6,12 @@ from transformers import AutoModel, AutoTokenizer, AutoImageProcessor, Generatio
 from .conversation import get_conv_template
 
 class InternVL(nn.Module):
-    def __init__(self, model_path='U4R/StructTable-InternVL-1B', max_new_tokens=1024, max_time=30, **kwargs):
+    def __init__(self, model_path='U4R/StructTable-InternVL-1B', max_new_tokens=1024, max_time=30, flash_attn=True, **kwargs):
         super().__init__()
         self.model_path = model_path
         self.max_new_tokens = max_new_tokens
         self.max_generate_time = max_time
+        self.flash_attn = flash_attn
 
         # init model and image processor from ckpt path
         self.init_tokenizer(model_path)
@@ -31,7 +32,7 @@ class InternVL(nn.Module):
             trust_remote_code=True,
             torch_dtype=torch.bfloat16,
             low_cpu_mem_usage=True,
-            use_flash_attn=True,
+            use_flash_attn=self.flash_attn,
         )
         self.model.eval()
     

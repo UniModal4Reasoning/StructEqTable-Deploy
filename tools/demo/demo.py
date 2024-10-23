@@ -16,6 +16,7 @@ def parse_config():
                         help='The model outputs LaTeX format code by default. Simple structured table LaTeX code can be converted to HTML or Markdown format using pypandoc.')
     parser.add_argument('--tensorrt_path', type=str, default=None, help='enable tensorrt for model acceleration')
     parser.add_argument('--lmdeploy', action='store_true', help='use lmdepoly to accelerate model inference')
+    parser.add_argument('--disable_flash_attn', action='store_true', help='disable flash attention for non ampere gpu')
     args = parser.parse_args()
     return args
 
@@ -28,7 +29,8 @@ def main():
         max_new_tokens=args.max_new_tokens, 
         max_time=args.max_waiting_time,
         tensorrt_path=args.tensorrt_path,
-        lmdeploy=args.lmdeploy
+        lmdeploy=args.lmdeploy,
+        flash_attn=not args.disable_flash_attn
     )
 
     assert torch.cuda.is_available(), "Our model current only support with gpu"
