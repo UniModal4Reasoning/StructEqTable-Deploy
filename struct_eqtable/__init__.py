@@ -28,7 +28,7 @@ def get_model_name(model_path):
     return model_name
 
 
-def build_model(model_ckpt, **kwargs):
+def build_model(model_ckpt='U4R/StructTable-InternVL2-1B', **kwargs):
     model_name = get_model_name(model_ckpt)
     if model_name == 'InternVL' and kwargs.get('lmdeploy', False):
         model_name = 'InternVL_LMDeploy'

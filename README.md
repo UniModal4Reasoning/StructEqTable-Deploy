@@ -39,13 +39,14 @@ conda activate structeqtable
 # Install from Source code  (Suggested)
 git clone https://github.com/UniModal4Reasoning/StructEqTable-Deploy.git
 cd StructEqTable-Deploy
+pip install -r requirements.txt
 python setup develop
 
 # or Install from Github repo
 pip install "git+https://github.com/UniModal4Reasoning/StructEqTable-Deploy.git"
 
 # or Install from PyPI
-pip install struct-eqtable==0.3.0
+pip install struct-eqtable --upgrade
 ```
 
 ## Model Zoo

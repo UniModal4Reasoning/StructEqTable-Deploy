@@ -20,7 +20,7 @@ if __name__ == '__main__':
         long_description_content_type="text/markdown",
         install_requires=[
             'torch',
-            'transformers',
+            'transformers<=4.45.2',
         ],
         python_requires=">=3.9",
         author='Hongbin Zhou, Xiangchao Yan, Bo Zhang',

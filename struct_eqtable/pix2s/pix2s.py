@@ -46,7 +46,8 @@ class Pix2Struct(nn.Module):
             flattened_patches=image_tokens['flattened_patches'],
             attention_mask=image_tokens['attention_mask'], 
             max_new_tokens=self.max_new_tokens,
-            max_time=self.max_generate_time
+            max_time=self.max_generate_time,
+            no_repeat_ngram_size=20,
         )
 
         latex_codes = self.data_processor.batch_decode(model_output, skip_special_tokens=True)

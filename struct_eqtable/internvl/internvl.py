@@ -6,7 +6,7 @@ from transformers import AutoModel, AutoTokenizer, AutoImageProcessor, Generatio
 from .conversation import get_conv_template
 
 class InternVL(nn.Module):
-    def __init__(self, model_path='U4R/StructTable-InternVL-1B', max_new_tokens=1024, max_time=30, flash_attn=True, **kwargs):
+    def __init__(self, model_path='U4R/StructTable-InternVL2-1B', max_new_tokens=1024, max_time=30, flash_attn=True, **kwargs):
         super().__init__()
         self.model_path = model_path
         self.max_new_tokens = max_new_tokens

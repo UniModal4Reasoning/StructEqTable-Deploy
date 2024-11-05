@@ -9,8 +9,8 @@ from struct_eqtable import build_model
 def parse_config():
     parser = argparse.ArgumentParser(description='arg parser')
     parser.add_argument('--image_path', type=str, default='demo.png', help='data path for table image')
-    parser.add_argument('--ckpt_path', type=str, default='U4R/StructTable-base', help='ckpt path for table model, which can be downloaded from huggingface')
-    parser.add_argument('--max_new_tokens', type=int, default=2048, help='maximum output tokens of model inference')
+    parser.add_argument('--ckpt_path', type=str, default='U4R/StructTable-InternVL2-1B', help='ckpt path for table model, which can be downloaded from huggingface')
+    parser.add_argument('--max_new_tokens', type=int, default=1024, help='maximum output tokens of model inference')
     parser.add_argument('-t', '--max_waiting_time', type=int, default=60, help='maximum waiting time of model inference')
     parser.add_argument('-f', '--output_format', type=str, nargs='+', default=['latex'], 
                         help='The model outputs LaTeX format code by default. Simple structured table LaTeX code can be converted to HTML or Markdown format using pypandoc.')

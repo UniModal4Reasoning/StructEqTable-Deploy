@@ -9,7 +9,7 @@ except:
 
 
 class InternVL_LMDeploy(nn.Module):
-    def __init__(self, model_path='U4R/StructTable-InternVL-1B', max_new_tokens=1024, batch_size=4, **kwargs):
+    def __init__(self, model_path='U4R/StructTable-InternVL2-1B', max_new_tokens=1024, batch_size=4, **kwargs):
         super().__init__()
         self.model_path = model_path
         self.max_new_tokens = max_new_tokens
