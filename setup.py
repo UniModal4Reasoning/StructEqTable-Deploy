@@ -7,7 +7,7 @@ def write_version_to_file(version, target_file):
         print('__version__ = "%s"' % version, file=f)
 
 if __name__ == '__main__':
-    version = '0.3.1'
+    version = '0.3.3'
     write_version_to_file(version, 'struct_eqtable/version.py')
     with Path(Path(__file__).parent,
               'README.md').open(encoding='utf-8') as file:
@@ -20,7 +20,7 @@ if __name__ == '__main__':
         long_description_content_type="text/markdown",
         install_requires=[
             'torch',
-            'transformers<=4.45.2',
+            'transformers<=4.47',
         ],
         python_requires=">=3.9",
         author='Hongbin Zhou, Xiangchao Yan, Bo Zhang',

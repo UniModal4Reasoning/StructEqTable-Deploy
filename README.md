@@ -14,7 +14,9 @@ Welcome to the official repository of StructEqTable-Deploy, a solution that conv
 Table is an effective way to represent structured data in scientific publications, financial statements, invoices, web pages, and many other scenarios. Extracting tabular data from a visual table image and performing the downstream reasoning tasks according to the extracted data is challenging, mainly due to that tables often present complicated column and row headers with spanning cell operation. To address these challenges, we present TableX, a large-scale multi-modal table benchmark extracted from [DocGenome benchmark](https://unimodal4reasoning.github.io/DocGenome_page/) for table pre-training, comprising more than 2 million high-quality Image-LaTeX pair data covering 156 disciplinary classes. Besides, benefiting from such large-scale data, we train an end-to-end model, StructEqTable, which provides the capability to precisely obtain the corresponding LaTeX description from a visual table image and perform multiple table-related reasoning tasks, including structural extraction and question answering, broadening its application scope and potential.
 
 ## Changelog
-- [2024/10/19] 🔥 We have released our **latest model [StructTable-InternVL2-1B](https://huggingface.co/U4R/StructTable-InternVL2-1B/tree/main)**! 
+- [2024/12/12] 🔥 We have released latest model **[StructTable-InternVL2-1B v0.2](https://huggingface.co/U4R/StructTable-InternVL2-1B/tree/main)** with enhanced recognition stability for HTML and Markdown formats!
+
+- [2024/10/19] We have released our latest model StructTable-InternVL2-1B!
 
   Thanks to IntenrVL2 powerful foundational capabilities, and through fine-tuning on the synthetic tabular data and DocGenome dataset, StructTable can convert table image into various common table formats including LaTeX, HTML, and Markdown. Moreover, inference speed has been significantly improved compared to the v0.2 version.
 - [2024/8/22] We have released our StructTable-base-v0.2, fine-tuned on the DocGenome dataset. This version features improved inference speed and robustness, achieved through data augmentation and reduced image token num.
@@ -53,9 +55,10 @@ pip install struct-eqtable --upgrade
 
 | Base Model | Model Size | Training Data | Data Augmentation | LMDeploy | TensorRT | HuggingFace |
 |---------------------|------------|------------------|-------------------|----------|----------|-------------------|
-| InternVL2-1B | ~1B | DocGenome and Synthetic Data | ✔ | ✔ | | [StructTable v0.3](https://huggingface.co/U4R/StructTable-InternVL2-1B/tree/main) |
-| Pix2Struct-base | ~300M | DocGenome | ✔ | | ✔ | [StructTable v0.2](https://huggingface.co/U4R/StructTable-base/tree/v0.2) |
-| Pix2Struct-base | ~300M | DocGenome | | | ✔ | [StructTable v0.1](https://huggingface.co/U4R/StructTable-base/tree/v0.1) |
+| InternVL2-1B | ~1B | DocGenome and Synthetic Data | ✔ | ✔ | | [StructTable-InternVL2-1B v0.2](https://huggingface.co/U4R/StructTable-InternVL2-1B/tree/main) |
+| InternVL2-1B | ~1B | DocGenome and Synthetic Data | ✔ | ✔ | | [StructTable-InternVL2-1B v0.1](https://huggingface.co/U4R/StructTable-InternVL2-1B/tree/v0.1) |
+| Pix2Struct-base | ~300M | DocGenome | ✔ | | ✔ | [StructTable-base v0.2](https://huggingface.co/U4R/StructTable-base/tree/v0.2) |
+| Pix2Struct-base | ~300M | DocGenome | | | ✔ | [StructTable-base v0.1](https://huggingface.co/U4R/StructTable-base/tree/v0.1) |
 
 
 

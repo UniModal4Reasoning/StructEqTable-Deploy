@@ -1,2 +1,2 @@
 torch
-transformers<=4.45.2
+transformers<=4.47
